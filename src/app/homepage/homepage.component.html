@@ -1,0 +1,120 @@
+<!--suppress ALL -->
+<nav *ngIf="!this.Obj.isDark()" class="navbar navbar-expand-sm bg-primary justify-content-center">
+  <ul class="navbar-nav myclass">
+    <li class="nav-item">
+      <button (click)="showHome()" class="btn-primary btn" ><b>Home</b></button>
+    </li>
+    <li class="nav-item ">
+      <button (click)="showBooks()" class="btn-primary btn" ><b>Books</b></button>
+    </li>
+    <li class="nav-item">
+      <button (click)="showClothing()" class="btn-primary btn" ><b>Clothing</b></button>
+    </li>
+    <li class="nav-item">
+      <button (click)="showSports()" class="btn-primary btn" ><b>Sports</b></button>
+    </li>
+    <li class="nav-item">
+      <button (click)="showShoes()" class="btn-primary btn"><b>Shoes</b></button>
+    </li>
+    <li class="nav-item">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text"  placeholder="Search for products" name="search" [(ngModel)]="seevar" >
+        <button (click)="search()" class="btn btn-info" type="submit">Search</button>
+      </form>
+    </li>
+  </ul>
+</nav>
+<nav *ngIf="this.Obj.isDark()" class="navbar navbar-expand-sm bg-danger justify-content-center">
+  <ul class="navbar-nav myclass">
+    <li class="nav-item">
+      <button (click)="showHome()" class="btn-danger btn" ><b>Home</b></button>
+    </li>
+    <li class="nav-item ">
+      <button (click)="showBooks()" class="btn-danger btn" ><b>Books</b></button>
+    </li>
+    <li class="nav-item">
+      <button (click)="showClothing()" class="btn-danger btn" ><b>Clothing</b></button>
+    </li>
+    <li class="nav-item">
+      <button (click)="showSports()" class="btn-danger btn" ><b>Sports</b></button>
+    </li>
+    <li class="nav-item">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text"  placeholder="Search for products" name="search" [(ngModel)]="seevar" >
+        <button (click)="search()" class="btn btn-dark" type="submit">Search</button>
+      </form>
+    </li>
+  </ul>
+</nav>
+<br><br>
+<div class="d-flex ">
+    <div  *ngIf="!this.Obj.isDark()" class="ml-5" style="border-right: 1px solid black; padding-right: 20px; width: 300px ">
+      <div class="mt-4" style="border:1px solid black; border-radius:1rem; ">
+        <h3 align="center" style="font-family: cursive; border-bottom:1px solid black;" >Filters</h3>
+        <p align="center" class="text-primary"><b>Price Range</b></p><br>
+        <input type="radio" name="1" (click)="showMy(0,4000)"><b>0-4000</b><br>
+        <input type="radio" name="1" (click)="showMy(4000,8000)"><b>4000-8000</b><br>
+        <input type="radio" name="1" (click)="showMy(8000,12000)"><b>8000-12000</b><br>
+      </div>
+      <br><br>
+      <div *ngIf="service.isAdmin();">
+      <button  class="btn btn-primary btn-outline-dark text-white" (click)="add()">Add Products</button>
+      </div>
+    </div>
+
+  <div *ngIf="this.Obj.isDark()" class="ml-5" style="border-right: 2px solid red; padding-right: 20px; background-color: black; ">
+    <div class="mt-4" style="border:1px solid red; border-radius:1rem; ">
+      <h3 class="text-primary" align="center" style="font-family: cursive; border-bottom:1px solid red;" >Filters</h3>
+      <p align="center" class="text-primary"><b>Price Range</b></p><br>
+      <input  type="radio" name="1" (click)="showMy(0,4000)"><b>0-4000</b><br>
+      <input type="radio" name="1" (click)="showMy(4000,8000)"><b>4000-8000</b><br>
+      <input type="radio" name="1" (click)="showMy(8000,12000)"><b>8000-12000</b><br>
+    </div>
+    <br><br>
+    <div *ngIf="service.isAdmin();">
+      <button  class="btn btn-primary btn-outline-dark text-white" (click)="add()">Add Products</button>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="!this.Obj.isDark()" style="background-color:rgb(250, 255, 255) ">
+
+        <div class="card myclass1 ml-3 mr-3 mt-4 " *ngFor="let s of MyVar" >
+          <img class="card-img-top" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
+          <div class="card-body">
+            <i style="color:Orange" class="fa fa-star"></i>
+            <i style="color:Orange" class="fa fa-star"></i>
+            <i style="color:Orange" class="fa fa-star"></i>
+            <i style="color:Orange" class="fa fa-star"></i>
+            <i style="color:Orange" class="fa fa-star"></i>
+            <p class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b>Rs/-{{s.price}}</b></p>
+            <a href="/productdetails/{{s.productId}}" class="btn btn-primary btn-outline-dark stretched-link" >View Details</a>
+          </div>
+        </div>
+
+    </div>
+  <div *ngIf="this.Obj.isDark()" style="background-color:rgb(0, 0, 0) ">
+
+    <div class="card myclass1 ml-3 mr-3 mt-4 " *ngFor="let s of MyVar" >
+      <img class="card-img-top" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
+      <div class="card-body">
+        <i style="color:yellow" class="fa fa-star"></i>
+        <i style="color:yellow" class="fa fa-star"></i>
+        <i style="color:yellow" class="fa fa-star"></i>
+        <i style="color:yellow" class="fa fa-star"></i>
+        <i style="color:yellow" class="fa fa-star"></i>
+        <p class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b class="text-danger">Rs/-{{s.price}}</b></p>
+        <a href="/productdetails/{{s.productId}}" class="btn btn-primary btn-outline-dark stretched-link" >View Details</a>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+<br><br>
+<div align="center" class="bg-warning">
+  <p style="font-family: cursive">Thanks for being On <b> MyShop.com</b></p>
+</div>
+

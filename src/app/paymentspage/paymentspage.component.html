@@ -1,0 +1,66 @@
+<body>
+<div class="checkout-panel">
+  <div class="panel-body">
+    <h2 class="title">Checkout</h2>
+
+
+    <div class="payment-method">
+      <img class="m-auto rounded-circle" style="width: 10%; height: 20%" src = "../assets/images1/22.jpeg">
+      <label for="card" class="method card">
+        <div class="card-logos">
+        </div>
+
+        <div class="radio-input">
+          <input id="card" type="radio" name="payment">
+          Pay <b>{{total}}</b> with credit card
+        </div>
+      </label>
+
+      <label for="paypal" class="method paypal">
+        <img class="m-auto rounded-circle" style="width: 20%;height: 30%" src="../assets/images1/23.jpeg">
+        <div class="radio-input">
+          <input id="paypal" type="radio" name="payment">
+          Pay <b> {{total}} </b> with PayPal
+        </div>
+      </label>
+    </div>
+
+    <div class="input-fields">
+      <div class="column-1">
+        <label for="cardholder">Cardholder's Name</label>
+        <input type="text" id="cardholder" />
+
+        <div class="small-inputs">
+          <div>
+            <label for="date">Valid thru</label>
+            <input type="text" id="date" placeholder="MM / YY" />
+          </div>
+
+          <div>
+            <label for="verification">CVV / CVC *</label>
+            <input type="password" id="verification"/>
+          </div>
+        </div>
+
+      </div>
+      <div class="column-2">
+        <label for="cardnumber">Card Number</label>
+        <input type="password" id="cardnumber"/>
+
+        <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="d-flex">
+    <h2 style="width: 50%" class="font-italic">Your Total : {{total}}</h2>
+    <input class="form-control mr-sm-2 text-center text-capitalize " type="text"  placeholder="APply Promo Code" name="search" [(ngModel)]="Code" >
+    <button class="btn btn-sm btn-outline-dark btn-success" (click)="Apply()">Apply</button>
+  </div>
+  <b class="m-auto" *ngIf="test">Uh Hoo ! You get 300 Rs OFF</b>
+  <div class="panel-footer">
+    <button (click)="back()" class="btn back-btn">Back</button>
+    <button (click)="nextstep()" class="btn next-btn">Next Step</button>
+  </div>
+</div>
+</body>

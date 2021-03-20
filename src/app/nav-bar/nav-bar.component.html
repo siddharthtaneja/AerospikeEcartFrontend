@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/images1/4.jpeg" alt="logo" style="width:40px;">
+  </a>
+  <a class="font-weight-bold text-white font-italic text-decoration-none" href="/home">MyShop.com</a>
+  <ul class="navbar-nav m-auto">
+    <li class="nav-item">
+      <h3 style="font-family: cursive" *ngIf="this.authService.checkuserlogin()" class="text-white">Hi! {{prod.name}}</h3>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text"  placeholder="Search" name="search" [(ngModel)]="seevar" >
+        <button (click)="task()" class="btn btn-success" type="submit">Search</button>
+      </form>
+    </li>
+    <li *ngIf="this.authService.checkuserlogin()" class="nav-item">
+      <button class="nav-link bg-dark btn" (click)="dark()">Dark Mode</button>
+    </li>
+    <li *ngIf="this.authService.checkuserlogin()" class="nav-item">
+      <button class="nav-link bg-dark btn" (click)="light()">Light Mode</button>
+    </li>
+
+    <li  class="nav-item">
+      <a *ngIf="this.authService.checkuserlogin()" class="nav-link" href="/Myprofile">MyProfile</a>
+    </li>
+    <li class="nav-item">
+          <a  *ngIf="this.authService.checkuserlogin()" class="nav-link" href="/cart">Cart({{length}})</a>
+    </li>
+    <li class="nav-item">
+      <button *ngIf="this.authService.checkuserlogin()" class="nav-link bg-dark" (click)="logout()" >LogOut</button>
+      <button *ngIf="!this.authService.checkuserlogin()" class="nav-link bg-dark" (click)="login()" >LogIn</button>
+    </li>
+
+  </ul>
+
+</nav>

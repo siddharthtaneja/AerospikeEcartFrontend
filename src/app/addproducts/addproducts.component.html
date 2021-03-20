@@ -1,0 +1,28 @@
+<form  style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Add Products</h1>
+    <p>Please fill in this form to add a product</p>
+    <hr>
+    <label ><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" required>
+
+    <label ><b>Image</b></label>
+    <input type="text" placeholder="Enter Image" name="Name" [(ngModel)]="image" [ngModelOptions]="{standalone: true}" required>
+
+    <label ><b>Category</b></label>
+    <input type="text" placeholder="Enter Category" name="address" [(ngModel)]="category" [ngModelOptions]="{standalone: true}" required>
+
+    <label ><b>Price</b></label>
+    <input type="text" placeholder="Enter Price" name="email" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" required>
+
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn" (click)="add()">Add Products</button>
+    </div>
+  </div>
+</form>
+<br>
+<div  align="center" class="bg-warning">
+  <p style="font-family: cursive">Thanks for being On <b> MyShop.com</b></p>
+</div>

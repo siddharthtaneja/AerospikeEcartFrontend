@@ -1,0 +1,55 @@
+<br> <br>
+
+<div class="container">
+  <nav class="nav bg-light navbar-dark">|</nav>
+</div>
+
+<br> <br>
+
+<div class="container-fluid">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Item.NO</th>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th> </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let s of MyProds" rowspan="2">
+    <td>{{s.items.productId}}</td>
+    <td>
+
+      <a href="/productdetails/{{s.items.productId}}"><img src="../assets/images1/{{s.items.image}}" class="My"></a>
+
+    </td>
+    <td>
+      <button (click)="decrement(s.items.productId)" class="btn-danger btn">-</button>
+      <input  type="text" value="{{s.quantity}}" style="width: 80px" class="text-center">
+      <button (click)="increment(s.items.productId)" class="btn-success btn">+</button>
+    </td>
+    <td>{{s.items.price}}</td>
+    <td>
+      <button (click)="deletion(s.items.productId)" class="btn-danger btn">Remove</button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+</div>
+<br>
+<br>
+<div class="d-flex">
+<h2 style="width: 50%" class="font-italic">Your Total : {{total}}</h2>
+</div>
+<div align="center">
+<button class="btn  btn-dark btn-outline-danger text-white" (click)="CheckOut()" >Payments Page</button>
+</div>
+
+<br><br>
+
+<div align="center" class="bg-warning">
+  <p style="font-family: cursive">Thanks for being On <b> MyShop.com</b></p>
+</div>

@@ -1,0 +1,70 @@
+<br>
+
+<div class="container">
+  <nav class="nav bg-light navbar-dark">|</nav>
+</div>
+<br>
+<div class="d-flex">
+  <div class="m-auto" >
+    <div class="myclass" style="background-color: black;">
+    <img src="../assets/images1/{{ProductDetails.image}}" class="My" alt="myImg"><br><br>
+    </div>
+    <div align="center">
+    <button  (click)="addtocart()" class="btn-outline-dark btn-danger btn-lg ">Add to  Cart</button>
+    </div>
+  </div>
+
+  <div style="border-left: 1px solid black; width: 70%;">
+    <div class="container">
+      <div style="background-color: rgb(255, 255, 102); height: 30px" class="text-center text-capitalize "><b>Big Diwali Sale</b></div>
+    </div>
+    <br>
+    <p style="margin-left: 20px;"> <b> {{ProductDetails.name}} </b> /  {{ProductDetails.category}} </p>
+    <br>
+    <div class="d-flex">
+    <h2 style="width: 50%">Rs.{{ProductDetails.price}}/-</h2>
+      <button *ngIf="service.isAdmin();" (click)="delete()" class="btn btn-lg btn-danger btn-outline-dark">Delete this Item</button>
+    </div>
+      <p class="text-success">In Stock</p><p class="text-danger">Hurry! only a few left</p>
+    <div class="container-fluid">
+      <div class="row">
+      <div   style="background-color: rgb(255, 255, 255);" class="col-sm-12 col-md-12 col-lg-12"><b>About the {{ProductDetails.category}} /-</b>
+        <p>The intellectual content in a physical book need not be a composition, nor even be called a book. Books can consist only of drawings, engravings, or photographs, or such things as crossword puzzles or cut-out dolls. In a physical book, the pages can be left blank or can feature an abstract set of lines as support for on-going entries, i.e., an account book, an appointment book, a log book, an autograph book, a notebook, a diary or day book, or a sketchbook. Some physical books are made with pages thick and sturdy enough to support other physical objects, like a scrapbook or photograph album. Books may be distributed in electronic form as e-books and other formats.</p>
+      </div>
+      </div>
+    </div>
+     <br> <br>
+    <div class="container">
+      <div class="row">
+      <div style="background-color: rgb(255, 255, 255); height: 30px;" class="col-sm-12 col-md-12 col-lg-12 "><b>About Delievery /-</b>
+        <p> Get the Product in 7 Days of Order</p>
+  </div>
+
+</div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="mt-5" style="border-top:2px solid #004a80">
+  <div style="border-bottom: 2px solid #004a80" class="text-success" align="center"><b>Reviews</b></div>
+  <div *ngFor="let s of ReviewDetails">
+    <div style="background-color: #f1f1f1" class="d-flex">
+      <img src="../assets/images1/15.jpeg" class="rounded-circle" style="width: 30px; height: 30px">
+      <p style="width: 95%;"><b>{{s.users.name}}</b> -- {{s.review}}  </p>
+  <a *ngIf="s.users.name === UserDetails.name" class="text-capitalize btn btn-sm btn-outline-dark btn-danger" href="/reviews/{{s.productId}}/{{MyProd}}">Edit</a>
+    </div>
+  </div>
+
+</div>
+<br>
+<div class="d-flex" >
+<input *ngIf="NewPrice" class="form-control mr-sm-2 text-center text-capitalize " type="text"  placeholder="Add Review As {{UserDetails.name}}" name="search" [(ngModel)]="Review" >
+<button *ngIf="NewPrice" class="btn btn-success btn-outline-dark" (click)="PostReview(Review)">Add</button>
+</div>
+<br><br>
+
+<div align="center" class="bg-warning">
+  <p style="font-family: cursive">Thanks for being On <b> MyShop.com</b></p>
+</div>

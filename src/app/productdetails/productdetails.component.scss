@@ -1,0 +1,11 @@
+.My{
+  width: 300px;
+  height: 400px;
+}
+.myclass{
+  transition: transform .3s;
+}
+.myclass:hover{
+  transform: scale(1.01);
+  box-shadow: 0 1rem 3rem 0 yellow;
+}

@@ -1,0 +1,24 @@
+.myclass1
+{
+  display: inline-block;
+  width: 200px;
+  height: 130px;
+  transition: transform .3s;
+  border-bottom: 1px solid black;
+  border-radius: 1rem;
+}
+.myclass1:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem 0 blueviolet ;
+}
+
+myclass
+{
+  border-spacing: initial;
+}
+button{
+  font-family: cursive;
+}
+a{
+  font-family: cursive;
+}

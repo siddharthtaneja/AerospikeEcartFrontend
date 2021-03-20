@@ -1,0 +1,40 @@
+<br> <br>
+<div class="container">
+  <div class = "row">
+  <div class="col-sm-5 col-md-5 col-lg-5" style="border-right: 1px solid black;">
+  <img *ngIf="this.service.isAdmin()" src="../assets/images1/18.jpg" class="rounded-circle" style="width:60%; height: 80%">
+    <img *ngIf="!this.service.isAdmin()" src="../assets/images1/15.jpeg" class="rounded-circle" style="width:60%; height: 80%">
+
+    <br><br><br><br>
+    <button (click)="orders()" class="btn btn-dark btn-outline-success text-white btn-lg">Order History</button>
+  </div>
+
+    <div class="col-sm-7 col-md-7 col-lg-7">
+      <div align="center">
+        <div style=" position: relative">
+          <h1 class="text-secondary">Personal Details</h1>
+        </div>
+        <br>
+        <h2 align="left" >Name /-</h2>
+        <h2><input class="text-center bg-secondary" type="text" value="{{MyProd.name}}" size="45%" [disabled]="disabled" [(ngModel)]="MyProd.name"></h2>
+        <br><br>
+        <h2 align="left">Email /-</h2>
+        <h2><input class="text-center bg-secondary" type="text" value="{{MyProd.email}}" size="45" [disabled]="disabled" [(ngModel)]="MyProd.email"></h2>
+        <br><br>
+        <h2 align="left">Address</h2>
+        <h2><input class="text-center bg-secondary" type="text" value="{{MyProd.address}}" size="45" [disabled]="disabled" [(ngModel)]="MyProd.address"></h2>
+        <br>
+        <div class="btn-group d-flex">
+        <button class="btn btn-md btn-outline-dark" (click)="save()">Save</button>
+          <button class="btn btn-md btn-outline-dark" (click)="edit()">Edit</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br><br>
+<div align="center" class="bg-warning">
+  <p style="font-family: cursive">Thanks for being On <b> MyShop.com</b></p>
+</div>
