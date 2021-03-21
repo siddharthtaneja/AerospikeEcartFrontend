@@ -14,7 +14,7 @@
     <th>Item</th>
     <th>Quantity</th>
     <th>Price</th>
-    <th> </th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -41,11 +41,13 @@
 </div>
 <br>
 <br>
+<h1 *ngIf="!count">Cannot Enter More than Inventory for this product</h1>
 <div class="d-flex">
 <h2 style="width: 50%" class="font-italic">Your Total : {{total}}</h2>
 </div>
-<div align="center">
-<button class="btn  btn-dark btn-outline-danger text-white" (click)="CheckOut()" >Payments Page</button>
+<div  align="center" class="d-flex ">
+  <button class="btn ml-5 btn-dark btn-outline-primary text-white" (click)="ShopMore()" >Shop More</button>
+  <button class="btn m-auto btn-dark btn-outline-danger text-white" (click)="CheckOut()" >Payments Page</button>
 </div>
 
 <br><br>

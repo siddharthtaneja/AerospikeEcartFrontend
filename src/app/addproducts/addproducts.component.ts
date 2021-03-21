@@ -12,6 +12,7 @@ export class AddproductsComponent implements OnInit {
   category;
   price;
   image;
+  quantity;
   newcategory
   constructor(private client: HttpClient, private route: Router) { }
 
@@ -23,6 +24,7 @@ export class AddproductsComponent implements OnInit {
       category: this.category,
       price: this.price,
       image: this.image,
+      quantity: this.quantity
     };
     this.client.post('http://localhost:8080/api/notes', Var).subscribe(data => {
     });

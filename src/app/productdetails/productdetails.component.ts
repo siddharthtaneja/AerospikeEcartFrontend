@@ -96,5 +96,14 @@ export class ProductdetailsComponent implements OnInit {
     alert('Successfully Deleted');
     this.router.navigate(['home']);
   }
+  setQuantity(tr) {
+    const  token = sessionStorage.getItem('token');
+    const  headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:8080/api/up/' + this.MyProd + '/' + tr;
+    this.client.get(url,{headers}).subscribe( (data) => {
+    });
+    alert('Added Item in Inventory');
+    window.location.reload();
+  }
 }
 

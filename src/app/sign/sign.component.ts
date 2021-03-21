@@ -50,7 +50,7 @@ export class SignComponent implements OnInit {
     if(this.email.indexOf('@') <= 4){
       this.m = 1;
       alert('missing @ at correct place');
-    }0
+    }
     if(this.email.charAt(this.email.length - 4) !== '.'){
       this.m = 1;
       alert('Missing . at correct place');

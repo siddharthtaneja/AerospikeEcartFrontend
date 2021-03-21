@@ -10,7 +10,15 @@
     <img src="../assets/images1/{{ProductDetails.image}}" class="My" alt="myImg"><br><br>
     </div>
     <div align="center">
+      <br>
     <button  (click)="addtocart()" class="btn-outline-dark btn-danger btn-lg ">Add to  Cart</button>
+    </div>
+    <div align="center">
+      <p><b>{{ProductDetails.quantity}}</b> Left in inventory</p>
+    </div>
+    <div class="d-flex">
+      <input *ngIf="service.isAdmin();" type = "text" [(ngModel)]="tr" size="20">
+      <button size="5" (click)="setQuantity(tr)" class="btn btn-primary btn-outline-light" *ngIf="service.isAdmin();">Add More In Inventory</button>
     </div>
   </div>
 

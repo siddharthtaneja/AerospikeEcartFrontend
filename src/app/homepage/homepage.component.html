@@ -81,15 +81,19 @@
   <div *ngIf="!this.Obj.isDark()" style="background-color:rgb(250, 255, 255) ">
 
         <div class="card myclass1 ml-3 mr-3 mt-4 " *ngFor="let s of MyVar" >
-          <img class="card-img-top" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
+          <img *ngIf="s.quantity == 0" class="card-img-top img-fluid img-thumbnail imgmy" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
+          <img *ngIf="s.quantity > 0" class="card-img-top img-fluid" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
           <div class="card-body">
             <i style="color:Orange" class="fa fa-star"></i>
             <i style="color:Orange" class="fa fa-star"></i>
             <i style="color:Orange" class="fa fa-star"></i>
             <i style="color:Orange" class="fa fa-star"></i>
             <i style="color:Orange" class="fa fa-star"></i>
-            <p class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b>Rs/-{{s.price}}</b></p>
-            <a href="/productdetails/{{s.productId}}" class="btn btn-primary btn-outline-dark stretched-link" >View Details</a>
+            <p *ngIf="s.quantity == 0 && !service.isAdmin();"><b class="text-danger">{{s.name}}</b></p>
+            <p *ngIf="s.quantity == 0 && !service.isAdmin();">Item Available Soon</p>
+            <p *ngIf="s.quantity == 0 && service.isAdmin();" class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b>Rs/-{{s.price}}</b></p>
+            <p *ngIf="s.quantity > 0" class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b>Rs/-{{s.price}}</b></p>
+            <a *ngIf="s.quantity > 0" href="/productdetails/{{s.productId}}" class="btn btn-primary btn-outline-dark stretched-link" >View Details</a>
           </div>
         </div>
 
@@ -97,15 +101,18 @@
   <div *ngIf="this.Obj.isDark()" style="background-color:rgb(0, 0, 0) ">
 
     <div class="card myclass1 ml-3 mr-3 mt-4 " *ngFor="let s of MyVar" >
-      <img class="card-img-top" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
+      <img *ngIf="s.quantity == 0" class="card-img-top img-fluid" src="../assets/images1/24.jpeg" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
+      <img *ngIf="s.quantity > 0" class="card-img-top img-fluid" src="../assets/images1/{{s.image}}" alt="Card image" style="width:100%; height:14rem; border-radius: 1rem; ">
       <div class="card-body">
-        <i style="color:yellow" class="fa fa-star"></i>
-        <i style="color:yellow" class="fa fa-star"></i>
-        <i style="color:yellow" class="fa fa-star"></i>
-        <i style="color:yellow" class="fa fa-star"></i>
-        <i style="color:yellow" class="fa fa-star"></i>
-        <p class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b class="text-danger">Rs/-{{s.price}}</b></p>
-        <a href="/productdetails/{{s.productId}}" class="btn btn-primary btn-outline-dark stretched-link" >View Details</a>
+        <i style="color:Orange" class="fa fa-star"></i>
+        <i style="color:Orange" class="fa fa-star"></i>
+        <i style="color:Orange" class="fa fa-star"></i>
+        <i style="color:Orange" class="fa fa-star"></i>
+        <i style="color:Orange" class="fa fa-star"></i>
+        <p *ngIf="s.quantity == 0 && !service.isAdmin();"><b class="text-primary">{{s.name}}</b></p>
+        <p *ngIf="s.quantity == 0 && service.isAdmin();" class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b>Rs/-{{s.price}}</b></p>
+        <p *ngIf="s.quantity > 0" class="card-text" ><a href="/productdetails/{{s.productId}}">{{s.name}}</a><br><b>Rs/-{{s.price}}</b></p>
+        <a *ngIf="s.quantity > 0" href="/productdetails/{{s.productId}}" class="btn btn-primary btn-outline-dark stretched-link" >View Details</a>
       </div>
     </div>
 

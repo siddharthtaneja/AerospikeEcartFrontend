@@ -20,4 +20,7 @@ export class AuthenticationService {
     const user = sessionStorage.getItem('token');
     return !(user === null);
   }
+  getPass(email) {
+    return this.http.get('http://localhost:8080/users/getPass/' + email);
+  }
 }
